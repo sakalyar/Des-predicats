@@ -13,15 +13,18 @@ let atome x = Atome x
 
 (* ----------------- Exercice 1 : Comparaison militaire ----------------- *)
 
-(** Calcule la hauteur de l'arbre syntaxique d'une formule. *)
-let hauteur f = function
-	rec aux acc
-		| Bot | Top | Atome -> acc+1
+(*         ICI        *)
+
+let hauteur f g = 
+	let rec aux acc = function
+		| Bot -> acc+1
+		| Top -> acc+1
+		| Atome x -> acc+1
 		| Imp(f, g) -> max(aux(acc+1)f, aux(acc+1)g)
 		| Et(f, g) -> max(aux(acc+1)f, aux(acc+1)g)
 		| Ou(f, g) -> max(aux(acc+1)f, aux(acc+1)g)
 	in
-	0 acc
+	acc 0;;
 
 (** Compare militairement deux formules. *)
 let compare (f : formule) g =

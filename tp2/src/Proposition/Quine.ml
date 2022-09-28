@@ -15,10 +15,14 @@ let subst : formule -> string -> formule -> formule =
 
 (** Choisit un atome d'une formule, renvoyant None si aucun n'est présent.*)
 
-let choix_atome : formule -> string option = fun _ -> failwith "à faire"
+let choix_atome : formule -> string option = fun f -> 
+	match(f) with 
+	| [] -> None
+	| Some x -> x
 
 (** Simplifie une formule d'une manière paresseuse. *)
-let simplif_quine : formule -> formule = fun _ -> failwith "à faire"
+let simplif_quine : formule -> formule = fun f -> 
+	
 
 (** Teste si une formule est satisfaisable, selon l'algorithme de Quine. *)
 let quine_sat : formule -> bool = fun _ -> failwith "à faire"

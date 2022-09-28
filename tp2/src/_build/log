@@ -2,8 +2,8 @@
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Workspace root: /home/l3info/sakalyar/predicats/tp2/src
-# Auto-detected concurrency: 16
-$ /opt/opam/4.14.0/bin/ocamlc.opt -config > /tmp/dune_e9b021_output
+# Auto-detected concurrency: 4
+$ /opt/opam/4.14.0/bin/ocamlc.opt -config > /tmp/dune_0f8862_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -114,8 +114,15 @@ $ /opt/opam/4.14.0/bin/ocamlc.opt -config > /tmp/dune_e9b021_output
 #      }
 #  }
 $ (cd _build/default && /opt/opam/4.14.0/bin/ocamldep.opt -modules -impl Proposition/Formule.ml) > _build/default/Proposition/.Proposition.objs/Formule.ml.d
-> File "Proposition/Formule.ml", line 18, characters 1-4:
-> 18 | 	rec aux acc
->      	^^^
-> Error: Syntax error
+$ (cd _build/default && /opt/opam/4.14.0/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I Proposition/.Proposition.objs/byte -no-alias-deps -opaque -open Proposition -o Proposition/.Proposition.objs/byte/proposition__Formule.cmo -c -impl Proposition/Formule.ml)
+> File "Proposition/Formule.ml", line 23, characters 17-46:
+> 23 | 		| Imp(f, g) -> max(aux(acc+1)f, aux(acc+1)g)
+>      		               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 5 [ignored-partial-application]): this function application is partial,
+> maybe some arguments are missing.
+> File "Proposition/Formule.ml", line 23, characters 17-46:
+> 23 | 		| Imp(f, g) -> max(aux(acc+1)f, aux(acc+1)g)
+>      		               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error: This expression has type int * int -> int * int
+>        but an expression was expected of type int
 [2]
