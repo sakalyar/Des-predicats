@@ -1,0 +1,6 @@
+(** @canonical Proposition.Formule *)
+module Formule = Proposition__Formule
+
+
+(** @canonical Proposition.Quine *)
+module Quine = Proposition__Quine
